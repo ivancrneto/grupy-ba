@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+  <div id='header'>
+    <div id='logo'>
+      <h1>Python Bahia</h1>
+    </div>
+    <div id='menu'>
+      <ul>
+        <li>Home</li>
+        <li>wiki</li>
+        <li>Membros</li>
+        <li>Planet</li>
+        <li>Sobre</li>
+      <ul>
+    </div>
+  </div>
+  <!--<div id='highlights'>
+    {% block highlights %}
+    {% endblock %}
+  </div>-->
+  {% block content %}
+  {% endblock %}
+  <div id='footer'>
+    Grupo de usuários Python da Bahia - 2011<br />
+    Home | Wiki | Membros | Planet | Sobre
+  </div>
+</body>
+</html>

@@ -11,14 +11,25 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'site_grupy',                      # Or path to database file if using sqlite3.
-        'USER': 'grupy_ba',                      # Not used with sqlite3.
-        'PASSWORD': 'd097cec2d5fe7fd0',                  # Not used with sqlite3.
-        'HOST': 'db.grupy-ba.sampaioneto.com',                      # Set to empty string for localhost. Not used with sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '', # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+#         'NAME': 'site_grupy',                      # Or path to database file if using sqlite3.
+#         'USER': 'grupy_ba',                      # Not used with sqlite3.
+#         'PASSWORD': 'd097cec2d5fe7fd0',                  # Not used with sqlite3.
+#         'HOST': 'db.grupy-ba.sampaioneto.com',                      # Set to empty string for localhost. Not used with sqlite3.
+#         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+#     }
+# }
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -45,7 +56,7 @@ USE_L10N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '/home/grupy_ba/grupy-ba.sampaioneto.com/public/media'
+MEDIA_ROOT = ''
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -73,11 +84,13 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'grupyba.urls'
 
 TEMPLATE_DIRS = (
+    'templates'
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -90,6 +103,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.flatpages',
+    'django.contrib.admin',
 )
