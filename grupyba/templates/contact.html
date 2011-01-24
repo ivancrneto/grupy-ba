@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form id="contact_form" action="" method="post">
+    {% csrf_token %}
+    <label for="id_name">Nome:</label>
+        {{ contact_form.name }}
+        {{ contact_form.name.errors }}    
+    <label for="id_email">E-mail:</label>
+        {{ contact_form.email }}
+        {{ contact_form.email.errors }}            
+    <label for="id_issue">Assunto:</label>
+        {{ contact_form.issue }}
+        {{ contact_form.issue.errors }}
+    <label for="id_message">Mensagem:</label>
+        {{ contact_form.message }}
+       {{ contact_form.message.errors }}
+    <input type="submit" value="Submeter" />
+</form>
+{% endblock %}
